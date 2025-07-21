@@ -1,0 +1,4 @@
+if TEST0
+config ZMK_KEYBOARD_NAME
+    default "my kbd test0"
+endif

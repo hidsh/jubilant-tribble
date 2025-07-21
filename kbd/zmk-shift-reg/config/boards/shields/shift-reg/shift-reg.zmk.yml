@@ -1,0 +1,8 @@
+file_format: "1"
+id: shift-reg
+name: shift-reg
+type: shield
+url: https://example.com/
+requires: [seeeduino_xiao_ble]
+features:
+  - keys

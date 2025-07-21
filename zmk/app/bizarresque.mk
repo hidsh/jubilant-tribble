@@ -1,0 +1,1 @@
+../../kbd/zmk-bizarresque/bizarresque.mk

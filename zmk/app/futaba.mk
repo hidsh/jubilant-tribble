@@ -1,0 +1,1 @@
+../../kbd/futaba/futaba.mk

@@ -1,0 +1,163 @@
+#include <dt-bindings/zmk/matrix_transform.h>
+#include <zephyr/dt-bindings/input/input-event-codes.h>
+// #include <input/processors.dtsi>
+
+// #include <dt-bindings/zmk/input_transform.h>
+
+/ {
+    kscan0: kscan0 {
+        compatible = "zmk,kscan-gpio-matrix";
+        diode-direction = "col2row";
+        wakeup-source;
+
+        col-gpios
+            = <&xiao_d 0 GPIO_ACTIVE_HIGH>
+            , <&xiao_d 1 GPIO_ACTIVE_HIGH>
+            ;
+
+        row-gpios
+            = <&xiao_d 2 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            , <&xiao_d 3 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            ;
+    };
+
+    default_transform: keymap_transform0 {
+        compatible = "zmk,matrix-transform";
+        columns = <2>;
+        rows = <2>;
+        map = <
+            RC(0,0) RC(0,1)
+            RC(1,0) RC(1,1)
+        >;
+    };
+
+    chosen {
+        zmk,kscan = &kscan0;
+        zmk,matrix_transform = &default_transform;
+    };
+};
+
+//-------------------------------
+// mcp3204
+//-------------------------------
+&pinctrl {
+    spi2_default: spi2_default {
+        group1 {
+            psels = <NRF_PSEL(SPIM_SCK,  0,  5)>,       // SCK:  P0.05
+                    <NRF_PSEL(SPIM_MOSI, 0,  4)>,       // MOSI: P0.04
+                    <NRF_PSEL(SPIM_MISO, 0, 29)>;       // MISO: P0.29
+        };
+    };
+
+    spi2_sleep: spi2_sleep {
+        group1 {
+            psels = <NRF_PSEL(SPIM_SCK,  0,  5)>,       // SCK:  P0.05
+                    <NRF_PSEL(SPIM_MOSI, 0,  4)>,       // MOSI: P0.04
+                    <NRF_PSEL(SPIM_MISO, 0, 29)>;       // MISO: P0.29
+            low-power-enable;
+        };
+    };
+};
+
+&xiao_spi {
+    compatible = "nordic,nrf-spim";
+    status = "okay";
+    pinctrl-0 = <&spi2_default>;
+    pinctrl-1 = <&spi2_sleep>;
+    pinctrl-names = "default", "sleep";
+    cs-gpios = <&xiao_d 10 GPIO_ACTIVE_LOW>;         // /CS: P1.15
+
+    mcp_adc: mcp3204@0 {
+        compatible = "microchip,mcp3204";
+        status = "okay";
+        reg = <0>;
+        spi-max-frequency = <400000>;  // ok
+    // spi-max-frequency = <100000>;  // NG
+        #io-channel-cells = <1>;
+    //  duplex = <0>;           // 0: full duplex, 2048: half duplex
+    };
+
+};
+
+//-------------------------------
+// mcp3204-pointing
+//-------------------------------
+/{
+	ain0: mcp3204-pointing {
+		compatible = "zmk,mcp3204-pointing";
+		sampling-hz = <100>;
+        /*
+		x-ch {
+        }
+		y-ch {
+        }
+        */
+    };
+
+    /*
+    analog_input_listener {
+        status = "okay";
+        compatible = "zmk,input-listener";
+        device = <&ain0>;
+        // input-processors = <&zip_xy_to_scroll_mapper>;                    // acts as a scroll wheel
+        input-processors = <&zip_xy_transform INPUT_TRANSFORM_Y_INVERT>;  // acts as mouse
+    };
+    */
+
+};
+
+
+//-------------------------------
+// analog-input
+//-------------------------------
+// #include <zephyr/dt-bindings/input/input-event-codes.h>
+/* Reference: https://docs.zephyrproject.org/apidoc/latest/group__input__events.html */
+
+/*
+&adc {
+	status = "okay";
+};
+
+/ {
+	ain0: analog_input_0 {
+		compatible = "zmk,analog-input";
+		sampling-hz = <100>;
+		y-ch {
+			io-channels = <&mcp_adc 0>;     // 0: mcp3204 ch0
+			mv-mid = <1950>;
+			mv-min-max = <1600>;
+			mv-deadzone = <200>;
+			scale-multiplier = <1>;
+			scale-divisor = <200>;
+			invert;
+			evt-type = <INPUT_EV_REL>;
+			input-code = <INPUT_REL_Y>;
+		};
+		x-ch {
+			io-channels = <&mcp_adc 1>;     // 1: mcp3204 ch1
+			mv-mid = <1950>;
+			mv-min-max = <1600>;
+			mv-deadzone = <200>;
+			scale-multiplier = <1>;
+			scale-divisor = <200>;
+			invert;
+			evt-type = <INPUT_EV_REL>;
+			input-code = <INPUT_REL_X>;
+
+			// enable report mdoe for gamepad axix or knob
+			// to only call input_report on quantquantized value is updated
+			// NOTE: mouse input does NOT need this
+			// report-on-change-only;
+
+		};
+	};
+
+    analog_input_listener {
+        status = "okay";
+        compatible = "zmk,input-listener";
+        device = <&ain0>;
+        // input-processors = <&zip_xy_to_scroll_mapper>;                    // acts as a scroll wheel
+        input-processors = <&zip_xy_transform INPUT_TRANSFORM_Y_INVERT>;  // acts as mouse
+    };
+};
+*/

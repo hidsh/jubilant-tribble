@@ -1,0 +1,25 @@
+include:
+  - board: seeeduino_xiao
+    shield: shift-reg
+    artifact-name: shift-reg_xiao
+  - board: seeeduino_xiao_ble
+    shield: shift-reg
+    artifact-name: shift-reg_xiao_ble
+  - board: seeeduino_xiao_rp2040
+    shield: shift-reg
+    artifact-name: shift-reg_xiao_rp2040
+  - board: seeeduino_xiao
+    shield: shift-reg
+    snippet: studio-rpc-usb-uart
+    cmake-args: -DCONFIG_ZMK_STUDIO=y
+    artifact-name: shift-reg_xiao_studio
+  - board: seeeduino_xiao_ble
+    shield: shift-reg
+    snippet: studio-rpc-usb-uart
+    cmake-args: -DCONFIG_ZMK_STUDIO=y
+    artifact-name: shift-reg_xiao_ble_studio
+  - board: seeeduino_xiao_rp2040
+    shield: shift-reg
+    snippet: studio-rpc-usb-uart
+    cmake-args: -DCONFIG_ZMK_STUDIO=y
+    artifact-name: shift-reg_xiao_rp2040_studio

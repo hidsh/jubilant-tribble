@@ -1,0 +1,9 @@
+file_format: "1"
+id: mcp3204
+name: MCP3204
+type: shield
+url: https://github.com/hidsh/zmk-mcp3204-input-driver
+requires: [seeed_xiao]
+features:
+  - keys
+  - pointer

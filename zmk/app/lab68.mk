@@ -1,0 +1,1 @@
+../../kbd/zmk-lab68/lab68.mk

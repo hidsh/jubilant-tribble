@@ -1,0 +1,8 @@
+file_format: "1"
+id: test0
+name: Test0
+type: shield
+url https://foo.org/test0/zmk-config-test0
+requires: [seeeduino_xiao_ble]
+features:
+  - keys

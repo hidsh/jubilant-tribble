@@ -1,0 +1,100 @@
+#include <dt-bindings/zmk/matrix_transform.h>
+#include <physical_layouts.dtsi>
+
+&xiao_serial { status = "disabled"; };
+
+// shift-register
+&pinctrl {
+    spi0_default: spi0_default {
+        group1 {
+            psels = <NRF_PSEL(SPIM_SCK,  0, 5)>,    // XIAO #6(P0.05=D5/SCL)   --> 595 #11(SRCLK)
+                    <NRF_PSEL(SPIM_MOSI, 0, 4)>,    // XIAO #5(P0.04=D4/SDA)   --> 595 #14(SER)
+//                  <NRF_PSEL(SPIM_MISO, 1, 14)>;   // XIAO #10(P1.14=D9/MISO by default) --> N.C.
+                    <NRF_PSEL(SPIM_MISO, 0, 4)>;    // XIAO #5(P0.04=D4/SDA)   --> 595 #14(SER)
+        };
+    };
+
+    spi0_sleep: spi0_sleep {
+        group1 {
+            psels = <NRF_PSEL(SPIM_SCK,  0, 5)>,    // XIAO #6(P0.05=D5/SCL)   --> 595 #11(SRCLK)
+                    <NRF_PSEL(SPIM_MOSI, 0, 4)>,    // XIAO #5(P0.04=D4/SDA)   --> 595 #14(SER)
+//                  <NRF_PSEL(SPIM_MISO, 1, 14)>;   // XIAO #10(P1.14=D9/MISO by default) --> N.C.
+                    <NRF_PSEL(SPIM_MISO, 0, 4)>;    // XIAO #5(P0.04=D4/SDA)   --> 595 #14(SER)
+            low-power-enable;
+        };
+    };
+};
+
+// note: xiao_spi is alias to spi2 at zmk/zephyr/boards/arm/seeeduino_xiao_ble/seeed_xiao_connector.dts:29
+
+&spi0 {
+    compatible = "nordic,nrf-spim";
+	status = "okay";
+    pinctrl-0 = <&spi0_default>;
+    pinctrl-1 = <&spi0_sleep>;
+    pinctrl-names = "default", "sleep";
+ // cs-gpios = <&xiao_d 7 GPIO_ACTIVE_LOW>;         // XIAO #8(P1.12=D7/RX)    --> 595 #12(RCLK) as /CS
+	cs-gpios = <&xiao_d 6 GPIO_ACTIVE_LOW>;         // XIAO #7(P1.11=D6/TX)    --> 595 #12(RCLK) as /CS
+	shifter: 595@0 {
+		compatible = "zmk,gpio-595";
+		status = "okay";
+		gpio-controller;
+		spi-max-frequency = <300000>;
+		reg = <0>;
+		#gpio-cells = <2>;
+		ngpios = <16>;
+	};
+};
+
+/ {
+	chosen {
+		zmk,physical-layout = &physical_layout;
+	};
+
+	physical_layout: physical_layout {
+		compatible = "zmk,physical-layout";
+		display-name = "Default Layout";
+		kscan = <&kscan0>;
+		transform = <&default_transform>;
+
+		keys
+        //                          w   h   x   y  rot rx ry
+            = <&key_physical_attrs 100 100   0   0  0   0  0>
+            , <&key_physical_attrs 100 100 100   0  0   0  0>
+            , <&key_physical_attrs 100 100 200   0  0   0  0>
+            , <&key_physical_attrs 100 100 300   0  0   0  0>
+            , <&key_physical_attrs 100 100   0 100  0   0  0>
+            , <&key_physical_attrs 100 100 100 100  0   0  0>
+            , <&key_physical_attrs 100 100 200 100  0   0  0>
+            , <&key_physical_attrs 100 100 300 100  0   0  0>
+            ;
+	};
+
+	default_transform: keymap_transform0 {
+		compatible = "zmk,matrix-transform";
+		columns = <4>;
+		rows = <2>;
+		map = <
+RC(0,0) RC(0,1) RC(0,2) RC(0,3)
+RC(1,0) RC(1,1) RC(1,2) RC(1,3)
+		>;
+	};
+
+	kscan0: kscan_0 {
+		compatible = "zmk,kscan-gpio-matrix";
+		diode-direction = "col2row";
+
+		col-gpios
+            = <&shifter 1 GPIO_ACTIVE_HIGH>         // col0: 1st 595 #1(QB) -> 1
+            , <&shifter 2 GPIO_ACTIVE_HIGH>         // col1: 1st 595 #2(QC) -> 2
+            , <&shifter (8+1) GPIO_ACTIVE_HIGH>     // col2: 2nd 595 #1(QB) -> 8+1=9
+            , <&shifter (8+2) GPIO_ACTIVE_HIGH>     // col3: 2nd 595 #2(QC) -> 8+2=10
+			;
+
+		row-gpios
+			= <&xiao_d 0 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+			, <&xiao_d 1 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+			;
+	};
+
+};

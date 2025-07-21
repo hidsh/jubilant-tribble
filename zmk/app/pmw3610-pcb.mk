@@ -1,0 +1,1 @@
+../../kbd/zmk-pmw3610-pcb/pmw3610-pcb.mk

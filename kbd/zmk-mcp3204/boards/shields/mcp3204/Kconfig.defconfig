@@ -1,0 +1,10 @@
+if SHIELD_MCP3204
+
+    config ZMK_KEYBOARD_NAME
+        default "MCP3204"
+
+    config ZMK_BLE
+        bool
+        default y
+
+endif

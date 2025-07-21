@@ -1,0 +1,1 @@
+../../kbd/zmk-mcp3204/mcp3204.mk

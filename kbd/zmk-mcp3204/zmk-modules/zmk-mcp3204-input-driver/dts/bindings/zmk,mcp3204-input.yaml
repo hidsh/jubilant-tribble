@@ -1,0 +1,16 @@
+description: ZMK MCP3204 analog input driver
+
+compatible: "zmk,mcp3204-input"
+
+include: spi-device.yaml
+
+properties:
+  x_ch:
+    type: phandle
+    required: false
+  y_ch:
+    type: phandle
+    required: false
+  scroll_ch:
+    type: phandle
+    required: false

@@ -1,0 +1,16 @@
+# Copyright (c) 2020 The ZMK Contributors
+# SPDX-License-Identifier: MIT
+
+if SHIFT_REG
+
+config ZMK_KEYBOARD_NAME
+    default "shiftreg"
+
+if ZMK_BACKLIGHT
+
+config LED_GPIO
+    default y
+
+endif # ZMK_BACKLIGHT
+
+endif

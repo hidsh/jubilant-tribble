@@ -1,0 +1,5 @@
+menuconfig ZMK_MCP3204_INPUT
+    bool "Enable MCP3204 analog input driver"
+    default y
+    help
+      Enable support for MCP3204 as analog pointing input over SPI.

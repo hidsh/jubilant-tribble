@@ -1,0 +1,1 @@
+../../kbd/zmk-analog-input/analog-input.mk

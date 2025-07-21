@@ -1,0 +1,443 @@
+:: Reading: /home/g/mise-work/zmk-firmware/zmk/app/shift-reg.mk -> ../../kbd/zmk-shift-reg/shift-reg.mk
+::   Board:   seeeduino_xiao_ble
+::   Shield:  shift-reg
+::   KBD_PID: 615e
+ /home/g/mise-work/zmk-firmware/kbd/zmk-shift-reg
+west build  --pristine \
+            --board seeeduino_xiao_ble \
+            --snippet zmk-usb-logging  \
+            --  -DSHIELD=shift-reg \
+                -DZMK_CONFIG='/home/g/mise-work/zmk-firmware/kbd/zmk-shift-reg/config'
+-- west build: making build dir /home/g/mise-work/zmk-firmware/zmk/app/build pristine
+-- west build: generating a build system
+Loading Zephyr default modules (Zephyr base).
+-- Application: /home/g/mise-work/zmk-firmware/zmk/app
+-- CMake version: 4.0.1-dirty
+-- Found Python3: /home/g/mise-work/zmk-firmware/.venv/bin/python (found suitable version "3.12.7", minimum required is "3.8") found components: Interpreter
+-- Cache files will be written to: /home/g/.cache/zephyr
+-- Zephyr version: 3.5.0 (/home/g/mise-work/zmk-firmware/zmk/zephyr)
+-- Found west (found suitable version "1.3.0", minimum required is "0.14.0")
+-- Adding ZMK config directory as board root: /home/g/mise-work/zmk-firmware/kbd/zmk-shift-reg/config
+CMake Deprecation Warning at keymap-module/modules/modules.cmake:53 (message):
+  The `config/boards` folder is deprecated.  Please use a module instead.
+  See https://zmk.dev/docs/development/hardware-integration/new-shield and
+  https://zmk.dev/docs/development/module-creation for more information.
+Call Stack (most recent call first):
+  /home/g/mise-work/zmk-firmware/zmk/zephyr/cmake/modules/zephyr_module.cmake:130 (include)
+  /home/g/mise-work/zmk-firmware/zmk/zephyr/cmake/modules/zephyr_default.cmake:129 (include)
+  /home/g/mise-work/zmk-firmware/zmk/zephyr/share/zephyr-package/cmake/ZephyrConfig.cmake:66 (include)
+  /home/g/mise-work/zmk-firmware/zmk/zephyr/share/zephyr-package/cmake/ZephyrConfig.cmake:92 (include_boilerplate)
+  CMakeLists.txt:9 (find_package)
+
+
+-- Adding /home/g/mise-work/zmk-firmware/kbd/zmk-shift-reg/config/boards/shields/shift-reg
+-- ZMK Config directory: /home/g/mise-work/zmk-firmware/kbd/zmk-shift-reg/config
+-- Using keymap file: /home/g/mise-work/zmk-firmware/kbd/zmk-shift-reg/config/boards/shields/shift-reg/shift-reg.keymap
+-- Board: seeeduino_xiao_ble
+-- Shield(s): shift-reg
+-- Snippet(s): zmk-usb-logging
+-- ZEPHYR_TOOLCHAIN_VARIANT not set, trying to locate Zephyr SDK
+-- Found host-tools: zephyr 0.16.3 (/home/g/zephyr-sdk-0.16.3)
+-- Found toolchain: zephyr 0.16.3 (/home/g/zephyr-sdk-0.16.3)
+-- Found Dtc: /home/g/zephyr-sdk-0.16.3/sysroots/x86_64-pokysdk-linux/usr/bin/dtc (found suitable version "1.6.0", minimum required is "1.4.6")
+-- Found BOARD.dts: /home/g/mise-work/zmk-firmware/zmk/zephyr/boards/arm/seeeduino_xiao_ble/seeeduino_xiao_ble.dts
+-- Found devicetree overlay: /home/g/mise-work/zmk-firmware/zmk/app/boards/seeeduino_xiao_ble.overlay
+-- Found devicetree overlay: /home/g/mise-work/zmk-firmware/kbd/zmk-shift-reg/config/boards/shields/shift-reg/shift-reg.overlay
+-- Found devicetree overlay: /home/g/mise-work/zmk-firmware/kbd/zmk-shift-reg/config/boards/shields/shift-reg/shift-reg.keymap
+-- Found devicetree overlay: /home/g/mise-work/zmk-firmware/zmk/app/snippets/zmk-usb-logging/zmk-usb-logging.overlay
+'label' is marked as deprecated in 'properties:' in /home/g/mise-work/zmk-firmware/zmk/zephyr/dts/bindings/mtd/nordic,qspi-nor.yaml for node /soc/qspi@40029000/gd25q16@0.
+-- Generated zephyr.dts: /home/g/mise-work/zmk-firmware/zmk/app/build/zephyr/zephyr.dts
+-- Generated devicetree_generated.h: /home/g/mise-work/zmk-firmware/zmk/app/build/zephyr/include/generated/devicetree_generated.h
+-- Including generated dts.cmake file: /home/g/mise-work/zmk-firmware/zmk/app/build/zephyr/dts.cmake
+/home/g/mise-work/zmk-firmware/zmk/app/build/zephyr/zephyr.dts:61.25-66.5: Warning (unique_unit_address_if_enabled): /soc/clock@40000000: duplicate unit-address (also used in node /soc/power@40000000)
+/home/g/mise-work/zmk-firmware/zmk/app/build/zephyr/zephyr.dts:333.21-337.5: Warning (unique_unit_address_if_enabled): /soc/acl@4001e000: duplicate unit-address (also used in node /soc/flash-controller@4001e000)
+/home/g/mise-work/zmk-firmware/zmk/app/build/zephyr/zephyr.dts:468.23-480.6: Warning (unique_unit_address_if_enabled): /soc/qspi@40029000/gd25q16@0: duplicate unit-address (also used in node /soc/qspi@40029000/p25q16h@0)
+
+warning: UART_INTERRUPT_DRIVEN (defined at boards/shields/sparkfun_sara_r4/Kconfig.defconfig:24,
+boards/shields/wnc_m14a2a/Kconfig.defconfig:17, soc/arm/quicklogic_eos_s3/Kconfig.defconfig:17,
+drivers/serial/Kconfig:72) was assigned the value 'n' but got the value 'y'. See
+http://docs.zephyrproject.org/latest/kconfig.html#CONFIG_UART_INTERRUPT_DRIVEN and/or look up
+UART_INTERRUPT_DRIVEN in the menuconfig/guiconfig interface. The Application Development Primer,
+Setting Configuration Values, and Kconfig - Tips and Best Practices sections of the manual might be
+helpful too.
+
+
+warning: SERIAL (defined at soc/arm/nxp_lpc/lpc55xxx/Kconfig.defconfig.lpc55S69_cpu1:14,
+drivers/serial/Kconfig:6) was assigned the value 'n' but got the value 'y'. See
+http://docs.zephyrproject.org/latest/kconfig.html#CONFIG_SERIAL and/or look up SERIAL in the
+menuconfig/guiconfig interface. The Application Development Primer, Setting Configuration Values,
+and Kconfig - Tips and Best Practices sections of the manual might be helpful too.
+
+
+warning: CONSOLE (defined at drivers/console/Kconfig:9) was assigned the value 'n' but got the value
+'y'. See http://docs.zephyrproject.org/latest/kconfig.html#CONFIG_CONSOLE and/or look up CONSOLE in
+the menuconfig/guiconfig interface. The Application Development Primer, Setting Configuration
+Values, and Kconfig - Tips and Best Practices sections of the manual might be helpful too.
+
+
+warning: UART_CONSOLE (defined at drivers/console/Kconfig:43) was assigned the value 'n' but got the
+value 'y'. See http://docs.zephyrproject.org/latest/kconfig.html#CONFIG_UART_CONSOLE and/or look up
+UART_CONSOLE in the menuconfig/guiconfig interface. The Application Development Primer, Setting
+Configuration Values, and Kconfig - Tips and Best Practices sections of the manual might be helpful
+too.
+
+
+warning: Deprecated symbol NRF_STORE_REBOOT_TYPE_GPREGRET is enabled.
+
+Parsing /home/g/mise-work/zmk-firmware/zmk/app/Kconfig
+Loaded configuration '/home/g/mise-work/zmk-firmware/zmk/zephyr/boards/arm/seeeduino_xiao_ble/seeeduino_xiao_ble_defconfig'
+Merged configuration '/home/g/mise-work/zmk-firmware/zmk/app/prj.conf'
+Merged configuration '/home/g/mise-work/zmk-firmware/zmk/app/boards/seeeduino_xiao_ble.conf'
+Merged configuration '/home/g/mise-work/zmk-firmware/kbd/zmk-shift-reg/config/boards/shields/shift-reg/shift-reg.conf'
+Merged configuration '/home/g/mise-work/zmk-firmware/zmk/app/snippets/zmk-usb-logging/zmk-usb-logging.conf'
+Configuration saved to '/home/g/mise-work/zmk-firmware/zmk/app/build/zephyr/.config'
+Kconfig header saved to '/home/g/mise-work/zmk-firmware/zmk/app/build/zephyr/include/generated/autoconf.h'
+-- Found GnuLd: /home/g/zephyr-sdk-0.16.3/arm-zephyr-eabi/bin/../lib/gcc/arm-zephyr-eabi/12.2.0/../../../../arm-zephyr-eabi/bin/ld.bfd (found version "2.38")
+-- The C compiler identification is GNU 12.2.0
+-- The CXX compiler identification is GNU 12.2.0
+-- The ASM compiler identification is GNU
+-- Found assembler: /home/g/zephyr-sdk-0.16.3/arm-zephyr-eabi/bin/arm-zephyr-eabi-gcc
+-- Configuring done (4.0s)
+-- Generating done (0.1s)
+-- Build files have been written to: /home/g/mise-work/zmk-firmware/zmk/app/build
+-- west build: building application
+[1/326] Preparing syscall dependency handling
+
+[2/326] Generating include/generated/app_version.h
+[3/326] Generating include/generated/version.h
+-- Zephyr version: 3.5.0 (/home/g/mise-work/zmk-firmware/zmk/zephyr), build: 0fa4cc26d8b1
+[4/326] Generating misc/generated/syscalls_subdirs.trigger
+[5/326] Generating misc/generated/syscalls.json, misc/generated/struct_tags.json
+[6/326] Generating include/generated/syscall_dispatch.c, include/generated/syscall_list.h
+[7/326] Generating include/generated/driver-validation.h
+[8/326] Generating include/generated/kobj-types-enum.h, include/generated/otype-to-str.h, include/generated/otype-to-size.h
+[9/326] Building C object zephyr/CMakeFiles/offsets.dir/arch/arm/core/offsets/offsets.c.obj
+[10/326] Generating include/generated/offsets.h
+[11/326] Building C object CMakeFiles/app.dir/src/stdlib.c.obj
+[12/326] Building C object CMakeFiles/app.dir/src/matrix_transform.c.obj
+[13/326] Building C object CMakeFiles/app.dir/src/behaviors/behavior_reset.c.obj
+[14/326] Building C object CMakeFiles/app.dir/src/ext_power_generic.c.obj
+[15/326] Building C object CMakeFiles/app.dir/src/events/usb_conn_state_changed.c.obj
+[16/326] Building C object CMakeFiles/app.dir/src/events/activity_state_changed.c.obj
+[17/326] Building C object CMakeFiles/app.dir/src/events/position_state_changed.c.obj
+[18/326] Building C object CMakeFiles/app.dir/src/sensors.c.obj
+[19/326] Building C object CMakeFiles/app.dir/src/events/sensor_event.c.obj
+[20/326] Building C object CMakeFiles/app.dir/src/activity.c.obj
+[21/326] Building C object zephyr/arch/common/CMakeFiles/isr_tables.dir/isr_tables.c.obj
+[22/326] Building C object CMakeFiles/app.dir/src/event_manager.c.obj
+[23/326] Building C object CMakeFiles/app.dir/src/behaviors/behavior_key_repeat.c.obj
+[24/326] Building C object CMakeFiles/app.dir/src/behavior.c.obj
+[25/326] Building C object CMakeFiles/app.dir/src/physical_layouts.c.obj
+[26/326] Building C object CMakeFiles/app.dir/src/behaviors/behavior_ext_power.c.obj
+[27/326] Building C object CMakeFiles/app.dir/src/behaviors/behavior_outputs.c.obj
+[28/326] Building C object CMakeFiles/app.dir/src/behaviors/behavior_toggle_layer.c.obj
+[29/326] Building C object CMakeFiles/app.dir/src/behaviors/behavior_caps_word.c.obj
+[30/326] Building C object CMakeFiles/app.dir/src/behaviors/behavior_key_press.c.obj
+[31/326] Building C object CMakeFiles/app.dir/src/behaviors/behavior_to_layer.c.obj
+[32/326] Building C object CMakeFiles/app.dir/src/behaviors/behavior_momentary_layer.c.obj
+[33/326] Building C object CMakeFiles/app.dir/src/behaviors/behavior_mod_morph.c.obj
+[34/326] Building C object CMakeFiles/app.dir/src/behaviors/behavior_none.c.obj
+[35/326] Building C object CMakeFiles/app.dir/src/combo.c.obj
+[36/326] Building C object CMakeFiles/app.dir/src/behaviors/behavior_transparent.c.obj
+[37/326] Building C object CMakeFiles/app.dir/src/conditional_layer.c.obj
+[38/326] Building C object CMakeFiles/app.dir/src/events/endpoint_changed.c.obj
+[39/326] Building C object CMakeFiles/app.dir/src/events/layer_state_changed.c.obj
+[40/326] Building C object CMakeFiles/app.dir/src/hid.c.obj
+[41/326] Building C object CMakeFiles/app.dir/src/events/keycode_state_changed.c.obj
+[42/326] Building C object CMakeFiles/app.dir/src/behavior_queue.c.obj
+[43/326] Building C object CMakeFiles/app.dir/src/events/modifiers_state_changed.c.obj
+[44/326] Building C object CMakeFiles/app.dir/src/behaviors/behavior_bt.c.obj
+[45/326] Building C object zephyr/CMakeFiles/zephyr.dir/lib/crc/crc32c_sw.c.obj
+[46/326] Building C object CMakeFiles/app.dir/src/events/ble_active_profile_changed.c.obj
+[47/326] Building C object CMakeFiles/app.dir/src/events/battery_state_changed.c.obj
+[48/326] Building C object zephyr/CMakeFiles/zephyr.dir/lib/crc/crc32_sw.c.obj
+[49/326] Building C object zephyr/CMakeFiles/zephyr.dir/lib/crc/crc16_sw.c.obj
+[50/326] Building C object CMakeFiles/app.dir/src/workqueue.c.obj
+[51/326] Building C object zephyr/CMakeFiles/zephyr.dir/lib/crc/crc7_sw.c.obj
+[52/326] Building C object CMakeFiles/app.dir/src/keymap.c.obj
+[53/326] Building C object CMakeFiles/app.dir/src/usb.c.obj
+[54/326] Building C object zephyr/CMakeFiles/zephyr.dir/lib/crc/crc8_sw.c.obj
+[55/326] Building C object CMakeFiles/app.dir/src/settings/reset_settings_nvs.c.obj
+[56/326] Building C object CMakeFiles/app.dir/src/main.c.obj
+[57/326] Building C object CMakeFiles/app.dir/src/hid_listener.c.obj
+[58/326] Building C object zephyr/CMakeFiles/zephyr.dir/lib/crc/crc4_sw.c.obj
+[59/326] Building C object CMakeFiles/app.dir/src/hog.c.obj
+[60/326] Building C object zephyr/CMakeFiles/zephyr.dir/lib/os/dec.c.obj
+[61/326] Building C object zephyr/CMakeFiles/zephyr.dir/lib/os/hex.c.obj
+[62/326] Building C object CMakeFiles/app.dir/src/battery.c.obj
+[63/326] Building C object zephyr/CMakeFiles/zephyr.dir/lib/os/printk.c.obj
+[64/326] Building C object zephyr/CMakeFiles/zephyr.dir/lib/os/thread_entry.c.obj
+[65/326] Building C object zephyr/CMakeFiles/zephyr.dir/lib/os/timeutil.c.obj
+[66/326] Building C object CMakeFiles/app.dir/src/usb_hid.c.obj
+[67/326] Building C object CMakeFiles/app.dir/src/endpoints.c.obj
+[68/326] Building C object zephyr/CMakeFiles/zephyr.dir/lib/os/sem.c.obj
+[69/326] Building C object zephyr/CMakeFiles/zephyr.dir/lib/os/multi_heap.c.obj
+[70/326] Building C object zephyr/CMakeFiles/zephyr.dir/lib/os/notify.c.obj
+[71/326] Building C object zephyr/CMakeFiles/zephyr.dir/lib/os/assert.c.obj
+[72/326] Building ASM object zephyr/CMakeFiles/zephyr.dir/soc/arm/nordic_nrf/common/soc_nrf_common.S.obj
+[73/326] Building C object zephyr/CMakeFiles/zephyr.dir/misc/generated/configs.c.obj
+[74/326] Building C object zephyr/CMakeFiles/zephyr.dir/lib/os/heap-validate.c.obj
+[75/326] Building C object zephyr/CMakeFiles/zephyr.dir/lib/os/cbprintf_nano.c.obj
+[76/326] Building C object zephyr/CMakeFiles/zephyr.dir/lib/os/bitarray.c.obj
+[77/326] Building C object zephyr/CMakeFiles/zephyr.dir/lib/os/cbprintf_packaged.c.obj
+[78/326] Building C object zephyr/CMakeFiles/zephyr.dir/lib/os/heap.c.obj
+[79/326] Building C object zephyr/CMakeFiles/zephyr.dir/lib/os/onoff.c.obj
+[80/326] Building C object zephyr/CMakeFiles/zephyr.dir/lib/os/reboot.c.obj
+[81/326] Building C object zephyr/CMakeFiles/zephyr.dir/lib/os/ring_buffer.c.obj
+[82/326] Building C object zephyr/CMakeFiles/zephyr.dir/soc/arm/nordic_nrf/validate_base_addresses.c.obj
+[83/326] Building C object zephyr/CMakeFiles/zephyr.dir/subsys/logging/log_cache.c.obj
+[84/326] Building C object zephyr/CMakeFiles/zephyr.dir/soc/arm/nordic_nrf/validate_enabled_instances.c.obj
+[85/326] Building C object zephyr/CMakeFiles/zephyr.dir/lib/os/mpsc_pbuf.c.obj
+[86/326] Building C object zephyr/CMakeFiles/zephyr.dir/subsys/logging/log_msg.c.obj
+[87/326] Building C object zephyr/CMakeFiles/zephyr.dir/subsys/tracing/tracing_none.c.obj
+[88/326] Building C object zephyr/CMakeFiles/zephyr.dir/subsys/storage/flash_map/flash_map.c.obj
+[89/326] Building C object zephyr/CMakeFiles/zephyr.dir/subsys/mem_mgmt/mem_attr.c.obj
+[90/326] Building C object zephyr/CMakeFiles/zephyr.dir/subsys/storage/flash_map/flash_map_default.c.obj
+[91/326] Building C object zephyr/CMakeFiles/zephyr.dir/subsys/logging/log_mgmt.c.obj
+[92/326] Building C object zephyr/CMakeFiles/zephyr.dir/lib/os/rb.c.obj
+[93/326] Building C object zephyr/CMakeFiles/zephyr.dir/subsys/logging/backends/log_backend_uart.c.obj
+[94/326] Building C object zephyr/CMakeFiles/zephyr.dir/subsys/storage/flash_map/flash_map_layout.c.obj
+[95/326] Building C object zephyr/CMakeFiles/zephyr.dir/subsys/net/lib/utils/addr_utils.c.obj
+[96/326] Building C object zephyr/CMakeFiles/zephyr.dir/subsys/logging/log_output.c.obj
+[97/326] Building C object zephyr/CMakeFiles/zephyr.dir/subsys/logging/log_core.c.obj
+[98/326] Building C object zephyr/CMakeFiles/zephyr.dir/subsys/bluetooth/services/dis.c.obj
+[99/326] Building C object zephyr/CMakeFiles/zephyr.dir/subsys/usb/device/usb_work_q.c.obj
+[100/326] Building C object zephyr/CMakeFiles/zephyr.dir/subsys/settings/src/settings_init.c.obj
+[101/326] Building C object zephyr/CMakeFiles/zephyr.dir/home/g/mise-work/zmk-firmware/zmk/modules/crypto/tinycrypt/lib/source/utils.c.obj
+[102/326] Building C object zephyr/CMakeFiles/zephyr.dir/subsys/bluetooth/services/bas.c.obj
+[103/326] Building C object zephyr/CMakeFiles/zephyr.dir/home/g/mise-work/zmk-firmware/zmk/modules/crypto/tinycrypt/lib/source/ecc_dh.c.obj
+[104/326] Building C object zephyr/CMakeFiles/zephyr.dir/subsys/settings/src/settings_store.c.obj
+[105/326] Building C object zephyr/CMakeFiles/zephyr.dir/home/g/mise-work/zmk-firmware/zmk/modules/crypto/tinycrypt/lib/source/aes_decrypt.c.obj
+[106/326] Building C object zephyr/CMakeFiles/zephyr.dir/home/g/mise-work/zmk-firmware/zmk/modules/crypto/tinycrypt/lib/source/cmac_mode.c.obj
+[107/326] Building C object zephyr/CMakeFiles/zephyr.dir/subsys/settings/src/settings.c.obj
+[108/326] Building C object zephyr/CMakeFiles/zephyr.dir/home/g/mise-work/zmk-firmware/zmk/modules/crypto/tinycrypt/lib/source/aes_encrypt.c.obj
+[109/326] Generating linker_zephyr_pre0.cmd
+[110/326] Linking C static library zephyr/arch/common/libisr_tables.a
+[111/326] Building C object CMakeFiles/app.dir/src/ble.c.obj
+[112/326] Building C object zephyr/CMakeFiles/zephyr.dir/subsys/fs/nvs/nvs.c.obj
+[113/326] Building C object zephyr/CMakeFiles/zephyr.dir/subsys/settings/src/settings_nvs.c.obj
+[114/326] Building ASM object zephyr/arch/arch/arm/core/CMakeFiles/arch__arm__core.dir/nmi_on_reset.S.obj
+[115/326] Building C object zephyr/CMakeFiles/zephyr.dir/subsys/settings/src/settings_line.c.obj
+[116/326] Building C object zephyr/arch/common/CMakeFiles/arch__common.dir/sw_isr_common.c.obj
+[117/326] Building ASM object zephyr/arch/arch/arm/core/cortex_m/CMakeFiles/arch__arm__core__cortex_m.dir/fault_s.S.obj
+[118/326] Building C object zephyr/CMakeFiles/zephyr.dir/subsys/usb/device/usb_transfer.c.obj
+[119/326] Building C object zephyr/arch/arch/arm/core/CMakeFiles/arch__arm__core.dir/nmi.c.obj
+[120/326] Building C object zephyr/arch/arch/arm/core/CMakeFiles/arch__arm__core.dir/tls.c.obj
+[121/326] Building ASM object zephyr/arch/arch/arm/core/cortex_m/CMakeFiles/arch__arm__core__cortex_m.dir/exc_exit.S.obj
+[122/326] Building ASM object zephyr/arch/arch/arm/core/cortex_m/CMakeFiles/arch__arm__core__cortex_m.dir/vector_table.S.obj
+[123/326] Building C object zephyr/arch/arch/arm/core/cortex_m/CMakeFiles/arch__arm__core__cortex_m.dir/fpu.c.obj
+[124/326] Building C object zephyr/arch/arch/arm/core/cortex_m/CMakeFiles/arch__arm__core__cortex_m.dir/scb.c.obj
+[125/326] Building ASM object zephyr/arch/arch/arm/core/cortex_m/CMakeFiles/arch__arm__core__cortex_m.dir/reset.S.obj
+[126/326] Building ASM object zephyr/arch/arch/arm/core/cortex_m/CMakeFiles/arch__arm__core__cortex_m.dir/cpu_idle.S.obj
+[127/326] Building C object zephyr/arch/arch/arm/core/cortex_m/CMakeFiles/arch__arm__core__cortex_m.dir/irq_init.c.obj
+[128/326] Building C object zephyr/arch/arch/arm/core/cortex_m/CMakeFiles/arch__arm__core__cortex_m.dir/thread_abort.c.obj
+[129/326] Building ASM object zephyr/arch/arch/arm/core/cortex_m/CMakeFiles/arch__arm__core__cortex_m.dir/swap_helper.S.obj
+[130/326] Building ASM object zephyr/arch/arch/arm/core/cortex_m/CMakeFiles/arch__arm__core__cortex_m.dir/__aeabi_read_tp.S.obj
+[131/326] Building C object zephyr/CMakeFiles/zephyr.dir/home/g/mise-work/zmk-firmware/zmk/modules/crypto/tinycrypt/lib/source/ecc.c.obj
+[132/326] Building C object zephyr/CMakeFiles/zephyr.dir/subsys/usb/device/usb_descriptor.c.obj
+[133/326] Building C object zephyr/arch/arch/arm/core/cortex_m/CMakeFiles/arch__arm__core__cortex_m.dir/swap.c.obj
+[134/326] Building ASM object zephyr/arch/arch/arm/core/cortex_m/CMakeFiles/arch__arm__core__cortex_m.dir/isr_wrapper.S.obj
+[135/326] Building C object zephyr/arch/arch/arm/core/cortex_m/CMakeFiles/arch__arm__core__cortex_m.dir/irq_manage.c.obj
+[136/326] Building C object zephyr/arch/arch/arm/core/CMakeFiles/arch__arm__core.dir/fatal.c.obj
+[137/326] Building C object zephyr/CMakeFiles/zephyr.dir/subsys/usb/device/class/cdc_acm.c.obj
+[138/326] Building C object zephyr/arch/arch/arm/core/cortex_m/CMakeFiles/arch__arm__core__cortex_m.dir/prep_c.c.obj
+[139/326] Building C object zephyr/arch/arch/arm/core/cortex_m/CMakeFiles/arch__arm__core__cortex_m.dir/thread.c.obj
+[140/326] Building C object zephyr/subsys/bluetooth/common/CMakeFiles/subsys__bluetooth__common.dir/addr.c.obj
+[141/326] Building C object zephyr/lib/libc/picolibc/CMakeFiles/lib__libc__picolibc.dir/libc-hooks.c.obj
+[142/326] Building C object zephyr/arch/arch/arm/core/mpu/CMakeFiles/arch__arm__core__mpu.dir/arm_core_mpu.c.obj
+[143/326] Building C object zephyr/lib/libc/common/CMakeFiles/lib__libc__common.dir/source/stdlib/abort.c.obj
+[144/326] Building C object zephyr/subsys/random/CMakeFiles/subsys__random.dir/rand32_entropy_device.c.obj
+[145/326] Building C object zephyr/soc/soc/arm/nordic_nrf/nrf52/CMakeFiles/soc__arm__nordic_nrf__nrf52.dir/soc.c.obj
+[146/326] Building C object zephyr/subsys/bluetooth/common/CMakeFiles/subsys__bluetooth__common.dir/dummy.c.obj
+[147/326] Building C object zephyr/soc/soc/arm/common/cortex_m/CMakeFiles/soc__arm__common__cortex_m.dir/arm_mpu_regions.c.obj
+[148/326] Building C object zephyr/subsys/bluetooth/common/CMakeFiles/subsys__bluetooth__common.dir/bt_str.c.obj
+[149/326] Building C object zephyr/lib/libc/common/CMakeFiles/lib__libc__common.dir/source/stdlib/malloc.c.obj
+[150/326] Building C object zephyr/subsys/bluetooth/host/CMakeFiles/subsys__bluetooth__host.dir/long_wq.c.obj
+[151/326] Building C object zephyr/subsys/random/CMakeFiles/subsys__random.dir/rand32_xoshiro128.c.obj
+[152/326] Building C object zephyr/subsys/bluetooth/common/CMakeFiles/subsys__bluetooth__common.dir/rpa.c.obj
+[153/326] Building C object zephyr/subsys/bluetooth/host/CMakeFiles/subsys__bluetooth__host.dir/uuid.c.obj
+[154/326] Building C object zephyr/subsys/bluetooth/host/CMakeFiles/subsys__bluetooth__host.dir/addr.c.obj
+[155/326] Building C object zephyr/arch/arch/arm/core/mpu/CMakeFiles/arch__arm__core__mpu.dir/arm_mpu.c.obj
+[156/326] Building C object zephyr/arch/arch/arm/core/cortex_m/CMakeFiles/arch__arm__core__cortex_m.dir/fault.c.obj
+[157/326] Building C object zephyr/subsys/bluetooth/host/CMakeFiles/subsys__bluetooth__host.dir/buf.c.obj
+[158/326] Building C object zephyr/subsys/bluetooth/host/CMakeFiles/subsys__bluetooth__host.dir/hci_common.c.obj
+[159/326] Building C object zephyr/subsys/bluetooth/host/CMakeFiles/subsys__bluetooth__host.dir/data.c.obj
+[160/326] Building C object zephyr/subsys/bluetooth/host/CMakeFiles/subsys__bluetooth__host.dir/hci_ecc.c.obj
+[161/326] Building C object zephyr/CMakeFiles/zephyr.dir/subsys/usb/device/usb_device.c.obj
+[162/326] Building C object zephyr/subsys/bluetooth/controller/CMakeFiles/subsys__bluetooth__controller.dir/util/mem.c.obj
+[163/326] Building C object zephyr/subsys/usb/device/class/hid/CMakeFiles/subsys__usb__device__class__hid.dir/core.c.obj
+[164/326] Building C object zephyr/subsys/bluetooth/host/CMakeFiles/subsys__bluetooth__host.dir/settings.c.obj
+[165/326] Building C object zephyr/subsys/bluetooth/host/CMakeFiles/subsys__bluetooth__host.dir/adv.c.obj
+[166/326] Building C object zephyr/subsys/bluetooth/controller/CMakeFiles/subsys__bluetooth__controller.dir/util/memq.c.obj
+[167/326] Building C object zephyr/subsys/bluetooth/host/CMakeFiles/subsys__bluetooth__host.dir/ecc.c.obj
+[168/326] Building C object zephyr/subsys/bluetooth/controller/CMakeFiles/subsys__bluetooth__controller.dir/util/dbuf.c.obj
+[169/326] Building C object zephyr/subsys/bluetooth/controller/CMakeFiles/subsys__bluetooth__controller.dir/util/util.c.obj
+[170/326] Building C object zephyr/subsys/bluetooth/controller/CMakeFiles/subsys__bluetooth__controller.dir/ll_sw/ll_feat.c.obj
+[171/326] Building C object zephyr/subsys/bluetooth/controller/CMakeFiles/subsys__bluetooth__controller.dir/util/mayfly.c.obj
+[172/326] Building C object zephyr/subsys/bluetooth/controller/CMakeFiles/subsys__bluetooth__controller.dir/ll_sw/ll_tx_pwr.c.obj
+[173/326] Building C object zephyr/subsys/bluetooth/controller/CMakeFiles/subsys__bluetooth__controller.dir/ll_sw/ll_addr.c.obj
+[174/326] Building C object zephyr/subsys/bluetooth/host/CMakeFiles/subsys__bluetooth__host.dir/l2cap.c.obj
+[175/326] Building C object zephyr/subsys/bluetooth/crypto/CMakeFiles/subsys__bluetooth__crypto.dir/bt_crypto.c.obj
+[176/326] Building C object zephyr/subsys/bluetooth/controller/CMakeFiles/subsys__bluetooth__controller.dir/ll_sw/lll_common.c.obj
+[177/326] Building C object zephyr/subsys/bluetooth/host/CMakeFiles/subsys__bluetooth__host.dir/id.c.obj
+[178/326] Building C object zephyr/subsys/bluetooth/host/CMakeFiles/subsys__bluetooth__host.dir/keys.c.obj
+[179/326] Building C object zephyr/subsys/bluetooth/controller/CMakeFiles/subsys__bluetooth__controller.dir/ll_sw/ull_tx_queue.c.obj
+[180/326] Building C object zephyr/subsys/bluetooth/controller/CMakeFiles/subsys__bluetooth__controller.dir/ticker/ticker.c.obj
+[181/326] Building C object zephyr/subsys/bluetooth/controller/CMakeFiles/subsys__bluetooth__controller.dir/ll_sw/ull_llcp_enc.c.obj
+[182/326] Building C object zephyr/subsys/bluetooth/controller/CMakeFiles/subsys__bluetooth__controller.dir/ll_sw/ull.c.obj
+[183/326] Building C object zephyr/subsys/bluetooth/controller/CMakeFiles/subsys__bluetooth__controller.dir/ll_sw/ull_adv.c.obj
+[184/326] Building C object zephyr/subsys/bluetooth/controller/CMakeFiles/subsys__bluetooth__controller.dir/ll_sw/ull_llcp_phy.c.obj
+[185/326] Building C object zephyr/subsys/bluetooth/controller/CMakeFiles/subsys__bluetooth__controller.dir/hci/hci_driver.c.obj
+[186/326] Building C object zephyr/subsys/bluetooth/controller/CMakeFiles/subsys__bluetooth__controller.dir/ll_sw/ull_llcp_local.c.obj
+[187/326] Building C object zephyr/subsys/bluetooth/controller/CMakeFiles/subsys__bluetooth__controller.dir/ll_sw/ull_llcp_chmu.c.obj
+[188/326] Building C object zephyr/subsys/bluetooth/controller/CMakeFiles/subsys__bluetooth__controller.dir/ll_sw/ull_llcp.c.obj
+[189/326] Building C object zephyr/subsys/bluetooth/controller/CMakeFiles/subsys__bluetooth__controller.dir/ll_sw/ull_llcp_pdu.c.obj
+[190/326] Building C object zephyr/subsys/bluetooth/host/CMakeFiles/subsys__bluetooth__host.dir/conn.c.obj
+[191/326] Building C object zephyr/subsys/bluetooth/controller/CMakeFiles/subsys__bluetooth__controller.dir/ll_sw/ull_llcp_common.c.obj
+[192/326] Building C object zephyr/subsys/bluetooth/controller/CMakeFiles/subsys__bluetooth__controller.dir/ll_sw/ull_chan.c.obj
+[193/326] Building C object zephyr/subsys/bluetooth/controller/CMakeFiles/subsys__bluetooth__controller.dir/ll_sw/ull_conn.c.obj
+[194/326] Building C object zephyr/subsys/bluetooth/controller/CMakeFiles/subsys__bluetooth__controller.dir/ll_sw/ull_llcp_remote.c.obj
+[195/326] Building C object zephyr/subsys/bluetooth/controller/CMakeFiles/subsys__bluetooth__controller.dir/ll_sw/ull_llcp_conn_upd.c.obj
+[196/326] Building C object zephyr/subsys/bluetooth/controller/CMakeFiles/subsys__bluetooth__controller.dir/ll_sw/lll_chan.c.obj
+[197/326] Building C object zephyr/subsys/bluetooth/controller/CMakeFiles/subsys__bluetooth__controller.dir/ll_sw/ull_peripheral.c.obj
+[198/326] Building C object zephyr/subsys/bluetooth/controller/CMakeFiles/subsys__bluetooth__controller.dir/flash/soc_flash_nrf_ticker.c.obj
+[199/326] Building C object zephyr/subsys/bluetooth/controller/CMakeFiles/subsys__bluetooth__controller.dir/ll_sw/nordic/lll/lll_clock.c.obj
+[200/326] Building C object zephyr/subsys/bluetooth/controller/CMakeFiles/subsys__bluetooth__controller.dir/hci/hci.c.obj
+[201/326] Building C object zephyr/subsys/bluetooth/controller/CMakeFiles/subsys__bluetooth__controller.dir/ll_sw/nordic/hal/nrf5/cntr.c.obj
+[202/326] Building C object zephyr/subsys/bluetooth/controller/CMakeFiles/subsys__bluetooth__controller.dir/ll_sw/nordic/lll/lll_peripheral.c.obj
+[203/326] Building C object zephyr/subsys/bluetooth/controller/CMakeFiles/subsys__bluetooth__controller.dir/ll_sw/nordic/lll/lll.c.obj
+[204/326] Building C object zephyr/subsys/bluetooth/controller/CMakeFiles/subsys__bluetooth__controller.dir/ll_sw/nordic/hal/nrf5/ecb.c.obj
+[205/326] Building C object zephyr/subsys/bluetooth/controller/CMakeFiles/subsys__bluetooth__controller.dir/crypto/crypto.c.obj
+[206/326] Building C object zephyr/subsys/bluetooth/controller/CMakeFiles/subsys__bluetooth__controller.dir/ll_sw/nordic/lll/lll_adv.c.obj
+[207/326] Building C object zephyr/subsys/bluetooth/host/CMakeFiles/subsys__bluetooth__host.dir/smp.c.obj
+[208/326] Building C object zephyr/subsys/bluetooth/controller/CMakeFiles/subsys__bluetooth__controller.dir/ll_sw/ull_filter.c.obj
+[209/326] Building C object zephyr/subsys/bluetooth/controller/CMakeFiles/subsys__bluetooth__controller.dir/ll_sw/nordic/hal/nrf5/ticker.c.obj
+[210/326] Building C object zephyr/subsys/bluetooth/controller/CMakeFiles/subsys__bluetooth__controller.dir/hci/nordic/hci_vendor.c.obj
+[211/326] Building C object zephyr/subsys/bluetooth/controller/CMakeFiles/subsys__bluetooth__controller.dir/ll_sw/nordic/lll/lll_conn.c.obj
+[212/326] Building C object zephyr/subsys/bluetooth/host/CMakeFiles/subsys__bluetooth__host.dir/att.c.obj
+[213/326] Building C object zephyr/subsys/bluetooth/host/CMakeFiles/subsys__bluetooth__host.dir/hci_core.c.obj
+[214/326] Building C object zephyr/subsys/bluetooth/controller/CMakeFiles/subsys__bluetooth__controller.dir/ll_sw/nordic/hal/nrf5/mayfly.c.obj
+[215/326] Building C object zephyr/subsys/net/CMakeFiles/subsys__net.dir/buf.c.obj
+[216/326] Building C object zephyr/subsys/bluetooth/host/CMakeFiles/subsys__bluetooth__host.dir/gatt.c.obj
+[217/326] Building C object zephyr/drivers/adc/CMakeFiles/drivers__adc.dir/adc_common.c.obj
+[218/326] Building C object zephyr/drivers/console/CMakeFiles/drivers__console.dir/uart_console.c.obj
+[219/326] Building C object zephyr/drivers/entropy/CMakeFiles/drivers__entropy.dir/entropy_nrf5.c.obj
+[220/326] Building C object zephyr/drivers/entropy/CMakeFiles/drivers__entropy.dir/entropy_bt_hci.c.obj
+[221/326] Building C object zephyr/drivers/flash/CMakeFiles/drivers__flash.dir/flash_page_layout.c.obj
+[222/326] Building C object zephyr/drivers/clock_control/CMakeFiles/drivers__clock_control.dir/clock_control_nrf.c.obj
+[223/326] Building C object zephyr/subsys/net/CMakeFiles/subsys__net.dir/buf_simple.c.obj
+[224/326] Building C object zephyr/subsys/bluetooth/controller/CMakeFiles/subsys__bluetooth__controller.dir/ll_sw/nordic/hal/nrf5/radio/radio.c.obj
+[225/326] Building C object zephyr/drivers/flash/CMakeFiles/drivers__flash.dir/jesd216.c.obj
+[226/326] Building C object zephyr/drivers/pinctrl/CMakeFiles/drivers__pinctrl.dir/common.c.obj
+[227/326] Building C object zephyr/drivers/hwinfo/CMakeFiles/drivers__hwinfo.dir/hwinfo_weak_impl.c.obj
+[228/326] Building C object zephyr/drivers/serial/CMakeFiles/drivers__serial.dir/home/g/mise-work/zmk-firmware/zmk/zephyr/misc/empty_file.c.obj
+[229/326] Building C object zephyr/drivers/kscan/CMakeFiles/drivers__kscan.dir/home/g/mise-work/zmk-firmware/zmk/app/module/drivers/kscan/kscan_gpio.c.obj
+[230/326] Building C object zephyr/drivers/gpio/CMakeFiles/drivers__gpio.dir/home/g/mise-work/zmk-firmware/zmk/app/module/drivers/gpio/gpio_595.c.obj
+[231/326] Building C object zephyr/drivers/flash/CMakeFiles/drivers__flash.dir/soc_flash_nrf.c.obj
+[232/326] Building C object zephyr/drivers/sensor/nrf5/CMakeFiles/drivers__sensor__nrf5.dir/temp_nrf5.c.obj
+[233/326] Building C object zephyr/drivers/timer/CMakeFiles/drivers__timer.dir/sys_clock_init.c.obj
+[234/326] Building C object zephyr/drivers/hwinfo/CMakeFiles/drivers__hwinfo.dir/hwinfo_nrf.c.obj
+[235/326] Building C object modules/hal_nordic/nrfx/CMakeFiles/modules__hal_nordic__nrfx.dir/home/g/mise-work/zmk-firmware/zmk/modules/hal/nordic/nrfx/mdk/system_nrf52840.c.obj
+[236/326] Building C object zephyr/drivers/pinctrl/CMakeFiles/drivers__pinctrl.dir/pinctrl_nrf.c.obj
+[237/326] Building C object zephyr/drivers/gpio/CMakeFiles/drivers__gpio.dir/gpio_nrfx.c.obj
+[238/326] Building C object modules/hal_nordic/nrfx/CMakeFiles/modules__hal_nordic__nrfx.dir/home/g/mise-work/zmk-firmware/zmk/modules/hal/nordic/nrfx/helpers/nrfx_flag32_allocator.c.obj
+[239/326] Building C object zephyr/drivers/adc/CMakeFiles/drivers__adc.dir/adc_nrfx_saadc.c.obj
+[240/326] Building C object modules/hal_nordic/nrfx/CMakeFiles/modules__hal_nordic__nrfx.dir/nrfx_glue.c.obj
+[241/326] Building C object zephyr/drivers/timer/CMakeFiles/drivers__timer.dir/nrf_rtc_timer.c.obj
+[242/326] Building C object zephyr/drivers/spi/CMakeFiles/drivers__spi.dir/spi_nrfx_common.c.obj
+[243/326] Building C object modules/hal_nordic/nrfx/CMakeFiles/modules__hal_nordic__nrfx.dir/home/g/mise-work/zmk-firmware/zmk/modules/hal/nordic/nrfx/drivers/src/nrfx_nvmc.c.obj
+[244/326] Building C object modules/hal_nordic/nrfx/CMakeFiles/modules__hal_nordic__nrfx.dir/home/g/mise-work/zmk-firmware/zmk/modules/hal/nordic/nrfx/drivers/src/nrfx_power.c.obj
+[245/326] Building C object modules/module/lib/zmk_debounce/CMakeFiles/..__app__module__lib__zmk_debounce.dir/debounce.c.obj
+[246/326] Building C object modules/hal_nordic/nrfx/CMakeFiles/modules__hal_nordic__nrfx.dir/home/g/mise-work/zmk-firmware/zmk/modules/hal/nordic/nrfx/drivers/src/nrfx_clock.c.obj
+[247/326] Building C object modules/module/drivers/sensor/battery/CMakeFiles/..__app__module__drivers__sensor__battery.dir/battery_common.c.obj
+[248/326] Building C object zephyr/drivers/flash/CMakeFiles/drivers__flash.dir/nrf_qspi_nor.c.obj
+[249/326] Building C object zephyr/kernel/CMakeFiles/kernel.dir/main_weak.c.obj
+[250/326] Building C object zephyr/kernel/CMakeFiles/kernel.dir/device.c.obj
+[251/326] Building C object zephyr/kernel/CMakeFiles/kernel.dir/banner.c.obj
+[252/326] Building C object zephyr/kernel/CMakeFiles/kernel.dir/errno.c.obj
+[253/326] Building C object modules/hal_nordic/nrfx/CMakeFiles/modules__hal_nordic__nrfx.dir/home/g/mise-work/zmk-firmware/zmk/modules/hal/nordic/nrfx/drivers/src/nrfx_qspi.c.obj
+[254/326] Building C object zephyr/kernel/CMakeFiles/kernel.dir/busy_wait.c.obj
+[255/326] Building C object zephyr/drivers/kscan/CMakeFiles/drivers__kscan.dir/home/g/mise-work/zmk-firmware/zmk/app/module/drivers/kscan/kscan_gpio_matrix.c.obj
+[256/326] Building C object zephyr/kernel/CMakeFiles/kernel.dir/version.c.obj
+[257/326] Building C object modules/module/drivers/sensor/battery/CMakeFiles/..__app__module__drivers__sensor__battery.dir/battery_voltage_divider.c.obj
+[258/326] Building C object zephyr/kernel/CMakeFiles/kernel.dir/init.c.obj
+[259/326] Building C object zephyr/kernel/CMakeFiles/kernel.dir/fatal.c.obj
+[260/326] Building C object zephyr/drivers/usb/device/CMakeFiles/drivers__usb__device.dir/usb_dc_nrfx.c.obj
+[261/326] Building C object zephyr/kernel/CMakeFiles/kernel.dir/kheap.c.obj
+[262/326] Building C object zephyr/kernel/CMakeFiles/kernel.dir/idle.c.obj
+[263/326] Building C object zephyr/kernel/CMakeFiles/kernel.dir/mem_slab.c.obj
+[264/326] Building C object zephyr/drivers/spi/CMakeFiles/drivers__spi.dir/spi_nrfx_spi.c.obj
+[265/326] Building C object zephyr/kernel/CMakeFiles/kernel.dir/thread.c.obj
+[266/326] Building C object zephyr/kernel/CMakeFiles/kernel.dir/sem.c.obj
+[267/326] Building C object zephyr/kernel/CMakeFiles/kernel.dir/mailbox.c.obj
+[268/326] Building C object zephyr/kernel/CMakeFiles/kernel.dir/msg_q.c.obj
+[269/326] Building C object zephyr/kernel/CMakeFiles/kernel.dir/queue.c.obj
+[270/326] Building C object zephyr/kernel/CMakeFiles/kernel.dir/condvar.c.obj
+[271/326] Building C object zephyr/kernel/CMakeFiles/kernel.dir/stack.c.obj
+[272/326] Building C object modules/hal_nordic/nrfx/CMakeFiles/modules__hal_nordic__nrfx.dir/home/g/mise-work/zmk-firmware/zmk/modules/hal/nordic/nrfx/drivers/src/nrfx_spi.c.obj
+[273/326] Building C object zephyr/kernel/CMakeFiles/kernel.dir/system_work_q.c.obj
+[274/326] Building C object zephyr/kernel/CMakeFiles/kernel.dir/xip.c.obj
+[275/326] Building C object zephyr/CMakeFiles/zephyr_pre0.dir/misc/empty_file.c.obj
+[276/326] Linking C static library app/libapp.a
+[277/326] Building C object zephyr/kernel/CMakeFiles/kernel.dir/mutex.c.obj
+[278/326] Linking C static library zephyr/arch/common/libarch__common.a
+[279/326] Building C object zephyr/kernel/CMakeFiles/kernel.dir/timeout.c.obj
+[280/326] Building C object zephyr/kernel/CMakeFiles/kernel.dir/timer.c.obj
+[281/326] Linking C static library zephyr/arch/arch/arm/core/libarch__arm__core.a
+[282/326] Linking C static library zephyr/lib/libc/picolibc/liblib__libc__picolibc.a
+[283/326] Linking C static library zephyr/arch/arch/arm/core/mpu/libarch__arm__core__mpu.a
+[284/326] Building C object modules/hal_nordic/nrfx/CMakeFiles/modules__hal_nordic__nrfx.dir/home/g/mise-work/zmk-firmware/zmk/modules/hal/nordic/nrfx/drivers/src/nrfx_usbd.c.obj
+[285/326] Building C object zephyr/kernel/CMakeFiles/kernel.dir/mempool.c.obj
+[286/326] Linking C static library zephyr/arch/arch/arm/core/cortex_m/libarch__arm__core__cortex_m.a
+[287/326] Linking C static library zephyr/libzephyr.a
+[288/326] Building C object zephyr/kernel/CMakeFiles/kernel.dir/dynamic_disabled.c.obj
+[289/326] Linking C static library zephyr/soc/soc/arm/common/cortex_m/libsoc__arm__common__cortex_m.a
+[290/326] Building C object modules/hal_nordic/nrfx/CMakeFiles/modules__hal_nordic__nrfx.dir/home/g/mise-work/zmk-firmware/zmk/modules/hal/nordic/nrfx/drivers/src/nrfx_gpiote.c.obj
+[291/326] Linking C static library zephyr/lib/libc/common/liblib__libc__common.a
+[292/326] Linking C static library zephyr/subsys/random/libsubsys__random.a
+[293/326] Linking C static library zephyr/subsys/usb/device/class/hid/libsubsys__usb__device__class__hid.a
+[294/326] Linking C static library zephyr/soc/soc/arm/nordic_nrf/nrf52/libsoc__arm__nordic_nrf__nrf52.a
+[295/326] Linking C static library zephyr/subsys/bluetooth/common/libsubsys__bluetooth__common.a
+[296/326] Linking C static library zephyr/subsys/bluetooth/crypto/libsubsys__bluetooth__crypto.a
+[297/326] Linking C static library zephyr/drivers/usb/device/libdrivers__usb__device.a
+[298/326] Linking C static library zephyr/subsys/net/libsubsys__net.a
+[299/326] Linking C static library zephyr/drivers/adc/libdrivers__adc.a
+[300/326] Linking C static library zephyr/drivers/console/libdrivers__console.a
+[301/326] Linking C static library zephyr/drivers/entropy/libdrivers__entropy.a
+[302/326] Linking C static library zephyr/drivers/gpio/libdrivers__gpio.a
+[303/326] Linking C static library zephyr/drivers/clock_control/libdrivers__clock_control.a
+[304/326] Linking C static library zephyr/drivers/flash/libdrivers__flash.a
+[305/326] Linking C static library zephyr/drivers/hwinfo/libdrivers__hwinfo.a
+[306/326] Linking C static library zephyr/drivers/serial/libdrivers__serial.a
+[307/326] Building C object zephyr/kernel/CMakeFiles/kernel.dir/work.c.obj
+[308/326] Linking C static library zephyr/drivers/kscan/libdrivers__kscan.a
+[309/326] Linking C static library zephyr/drivers/pinctrl/libdrivers__pinctrl.a
+[310/326] Building C object zephyr/kernel/CMakeFiles/kernel.dir/poll.c.obj
+[311/326] Linking C static library zephyr/drivers/spi/libdrivers__spi.a
+[312/326] Linking C static library zephyr/drivers/timer/libdrivers__timer.a
+[313/326] Linking C static library zephyr/drivers/sensor/nrf5/libdrivers__sensor__nrf5.a
+[314/326] Linking C static library zephyr/subsys/bluetooth/controller/libsubsys__bluetooth__controller.a
+[315/326] Linking C static library modules/module/drivers/sensor/battery/lib..__app__module__drivers__sensor__battery.a
+[316/326] Linking C static library zephyr/subsys/bluetooth/host/libsubsys__bluetooth__host.a
+[317/326] Linking C static library modules/module/lib/zmk_debounce/lib..__app__module__lib__zmk_debounce.a
+[318/326] Linking C static library modules/hal_nordic/nrfx/libmodules__hal_nordic__nrfx.a
+[319/326] Building C object zephyr/kernel/CMakeFiles/kernel.dir/sched.c.obj
+[320/326] Linking C static library zephyr/kernel/libkernel.a
+[321/326] Linking C executable zephyr/zephyr_pre0.elf
+[322/326] Generating linker.cmd
+[323/326] Generating isr_tables.c, isrList.bin
+[324/326] Building C object zephyr/CMakeFiles/zephyr_final.dir/misc/empty_file.c.obj
+[325/326] Building C object zephyr/CMakeFiles/zephyr_final.dir/isr_tables.c.obj
+[326/326] Linking C executable zephyr/zmk.elf
+Memory region         Used Size  Region Size  %age Used
+           FLASH:      231240 B       788 KB     28.66%
+             RAM:       54544 B       256 KB     20.81%
+        IDT_LIST:          0 GB         2 KB      0.00%
+Converted to uf2, output size: 462848, start address: 0x27000
+Wrote 462848 bytes to zmk.uf2
+:: 2025-07-06 13:16 /home/g/mise-work/zmk-firmware/zmk/app/build/zephyr/zmk.uf2
+::
+:: Flashing: 2025-07-06 13:16 /home/g/mise-work/zmk-firmware/zmk/app/build/zephyr/zmk.uf2
+::           UF2 firmware image, family Nordic NRF52840
+:: DOUBLE CLICK RESET BUTTON ON XIAO!!
+..

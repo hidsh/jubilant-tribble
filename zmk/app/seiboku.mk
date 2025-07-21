@@ -1,0 +1,1 @@
+../../kbd/seiboku/seiboku.mk

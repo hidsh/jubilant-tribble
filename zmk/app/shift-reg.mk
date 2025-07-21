@@ -1,0 +1,1 @@
+../../kbd/zmk-shift-reg/shift-reg.mk
